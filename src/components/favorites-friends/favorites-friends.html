@@ -1,0 +1,50 @@
+<!--<div (swipe)="swipeEvent($event)">-->
+  <ion-header>
+    <ion-navbar>
+      <ion-row justify-content-between align-items-center class="bar bar-header bar-positive">
+        <ion-title text-center>Обрані контакти
+        </ion-title>
+      </ion-row>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding-vertical>
+
+    <div class="contact_list">
+
+      <div *ngFor="let friend of friendsArr">
+        <ion-list>
+          <ion-item-sliding>
+            <ion-item *ngIf="friend" no-lines>
+              <ion-avatar item-start>
+                <img *ngIf="friend.photo_path" [src]="friend.photo_path">
+                <div *ngIf="!friend.photo_path" class="photo-placeholder" text-center>
+          <span>
+            {{(friend.first_name ? friend.first_name[0] : '') + (friend.last_name ? friend.last_name[0] : '')}}
+          </span>
+                </div>
+              </ion-avatar>
+              <ion-label>
+                {{friend.first_name + ' ' + friend.last_name}}
+              </ion-label>
+              <!--<ion-icon name="close" (click)="deleteFriend(friend)" item-end></ion-icon>-->
+            </ion-item>
+            <ion-item-options  side="left" style="background-color: gray">
+              <button  ion-button  style="background-color: #cc0000"  color="light" outline (click)="favorites(friend.id)">
+                <ion-icon name="trash"  color="light"></ion-icon>
+                Видалити з обраних
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+      <div class="alert_message" justify-content-between align-items-center *ngIf="!friendsArr || friendsArr.length === 0">
+        <h6 text-center>
+          У Вас ще немає обраних контактів
+        </h6>
+      </div>
+    </div>
+  </ion-content>
+
+
+<!--</div>-->

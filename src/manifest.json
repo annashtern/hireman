@@ -1,0 +1,29 @@
+{
+  "name": "Hire Man",
+  "short_name": "Hire Man",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#4e8ef7",
+  "theme_color": "#4e8ef7",
+
+  "notification":{
+    "title":"Hire Man", //Any value
+    "body":"New request", //Any value
+    "sound":"default", //If you want notification sound
+    "click_action":"FCM_PLUGIN_ACTIVITY", //Must be present for Android
+    "icon":"fcm_push_icon" //White icon Android resource
+  },
+  "data":{
+    "param1":"value1", //Any data to be retrieved in the notification callback
+    "param2":"value2"
+  },
+  "to":"/topics/topicExample", //Topic or single device
+  "priority":"high", //If not set, notification won't be delivered on completely closed iOS app
+  "restricted_package_name":"" //Optional. Set for application filtering
+
+}
